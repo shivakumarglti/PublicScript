@@ -2,8 +2,8 @@
 echo $HOSTNAME 
 vmName = $HOSTNAME
 echo vmName  
-sudo hostnamectl set-hostname vmName
-sudo sed -i 's/.*VM_IP.*/VM_IP vmName.endurancebermuda.net vmName/' /etc/hosts
+sudo hostnamectl set-hostname $vmName
+sudo sed -i 's/.*VM_IP.*/VM_IP $vmName.endurancebermuda.net $vmName/' /etc/hosts
 sudo sed -i '/^search.*/a nameserver 10.0.0.15' /etc/resolv.conf
 sudo sed -i 's/search/search endurancebermuda.net/g' /etc/resolv.conf
 sudo yum install realmd sssd sssd-tools samba packagekit adcli chrony krb5-workstation -y
